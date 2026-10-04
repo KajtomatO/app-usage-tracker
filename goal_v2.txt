@@ -1,0 +1,78 @@
+An Android app with home-screen widgets.
+Will track usage of other apps chosen by the user.
+This application's goal is to encourage using those apps [language learning, reading], not to reduce it.
+"app-usage-tracker" is a temporary name. Recommend some alternatives.
+
+Project:
+- Personal use first, open source.
+- License: GPL-3.0-or-later.
+- Pull requests are accepted, but require a contributor agreement
+    [needed so contributed code can be shipped in the build with ads].
+- Tech stack, minimum Android version, UI languages: not specified for now.
+
+
+MVP:
+
+Tracking
+- Use only the system mechanism for tracking usage time [on-screen time only].
+- Keep an own database of daily usage, because the system keeps only a few days of data.
+- When an app or group is first added, import the days the system still holds. Nothing older exists.
+- If a tracked app is uninstalled, its history is kept.
+- Known limitation: if the tracker cannot run for several days [phone off, background work blocked],
+    those days may be lost or less accurate.
+- First run: guide the user to grant usage access in system settings.
+
+Apps and groups
+- Apps can be grouped, then additionally the app will track usage of the entire group.
+- An app can belong to more than one group.
+- An app can be tracked on its own and inside groups at the same time, with separate goals for each.
+- Changing group membership affects only the future. Past totals and medals stay as recorded.
+
+Goals and medals
+- For each group or app the user can specify up to three daily goals [bronze, silver, gold].
+- A goal is "at least X time per day", the same for every day of the week.
+- 1 goal set: gold. 2 goals set: silver and gold. 3 goals set: bronze, silver and gold.
+- A reached goal shows a medal in the app and the widget, and the color tint should discreetly reflect it as well.
+- Changing goals affects only the future. Past medals stay as recorded.
+
+Statistics
+- The app shows usage of tracked apps / groups for today, last week, last month, last year.
+- Periods are rolling [last 7 / 30 / 365 days].
+- Each period shows total time and a count per medal [example: 12 gold, 5 silver].
+
+Widget
+- An individual widget shows a single group or app: today's time and medal.
+- Widget tap opens the app on the relevant entry.
+- Background refresh roughly every 15-30 minutes [Android limit], this is acceptable.
+- If possible, add a refresh button or zone to the widget.
+
+Settings
+- Daily reset time, default [04:00]. Global for all apps and groups.
+- Changing the reset time affects only the future.
+
+
+Full version:
+- Play Store
+- Data exporting
+- Streaks
+- Statistics: both rolling and calendar periods, detailed statistics
+- Widget: progress toward the next medal, several sizes
+- Backup export / import
+- Manual add time to goals
+- Automatic backup to Dropbox / Google Drive / etc.
+- Ads, paid / free version
+- Community edition - user can compile and sideload their own version without ads.
+- Audiobook / podcast type apps: show a note that tracking them is not recommended,
+    because time with the screen off is not counted.
+
+
+Future milestones [save, do not plan yet]:
+- Goals per day of the week [different goal for each day].
+- Notifications [reminder when a goal is not reached yet, message when a medal is earned].
+- Upload today's progress to a remote tracking app [Home Assistant integration?]
+- Time-zone change assist - when the app detects a time-zone change,
+    it can suggest the user some actions to avoid corrupting the database:
+    - force a new day
+    - extend a day
+    - "merge" two days
+    Those settings can also be part of advanced options.
