@@ -1,0 +1,40 @@
+An android APP / widget.
+Will track usage of APPs.
+Apps can be grouped, then additionaly app wil track usage of entire group.
+This application's goal is to encurage using those apps [languagne learning, reading] not to reduce it.
+An individual widget will show usage [time] of a single group or an app.
+For each group or an app user can specify up to three daily goals. [bronze, silver, gold] that when reached will show medals in app and widget and color tint should discretly reflect it as well.
+The app should show usage of tracked apps / groups for today, last week, last month, year.
+App can use system mechanism for tracking this time.
+Widget tap should open app on relevant entry.
+If possible, add refresh button or zone to widget
+An "app-usage-tracker" is temp name. Recomend some alternatives.
+
+MVP: 
+- As above, plus:
+- Personal use, Open source
+- Use only system tracking 
+- Setting, daily reset time, default [04:00]
+
+
+Full version:
+- Play Store
+- Data Exporting 
+- Streaks
+- Store more data, Example, if system tracks only a week worth of data keep your own database
+- Backup export / import
+- Manual add time to goals
+- Automatic Backup to Dropbox / GoogleDrive / etc
+- Ads, paid / free version
+- Community eddition - user can compile and sideload his on version without ads. 
+
+
+Future milestones [save, do not plan yet]:
+- Upload todays progress to remote trakking app [home assistan integration?]
+- Time-zone assist change - when app detects a timezone change,
+    it can suggest user some actions to avoid corrupting database:
+    - force a new day
+    - extend a day 
+    - "merge" two days
+    Those setting can be also part of advance options 
+    
